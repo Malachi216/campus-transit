@@ -14,6 +14,14 @@ class UIData {
   static String androidPackageName = 'com.limitless.campus_transit';
   static String iosBundleId = 'com.limitless.campusTransit';
   static String poppins = 'poppins';
+
+  //bases
+  static const baseImagePath = 'assets/images';
+  static const baseIconPath = 'assets/icons';
+
+  static const appLogoPath = '$baseIconPath/logo.svg';
+  static const truckImagePath = '$baseIconPath/truck.svg';
+
   
 
   static const primaryColor = Color(0xFF4098B8);

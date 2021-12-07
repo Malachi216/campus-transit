@@ -1,6 +1,7 @@
 import 'package:campus_transit/core/constants.dart';
 import 'package:campus_transit/core/navigator/navigator.dart';
 import 'package:campus_transit/core/styles.dart';
+import 'package:campus_transit/ui/widgets/campus_transit_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -49,14 +50,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
                 SizedBox(height: 50.0),
-                Text(
-                  'Spam Detector',
-                  style: onBoardTitleStyle,
-                ),
+                CampusTransitText(),
                 SizedBox(height: _size.height / 6),
                 Text('by', style: commonStyle),
                 HeightBox(15),
-                Text('Abiola Olamilekan', style: commonStyle.copyWith(fontSize: 16.0)),
+                Text(
+                  'Malachi Olaoluwa',
+                  style: commonStyle.copyWith(fontSize: 16.0),
+                ),
               ],
             ),
           ),
