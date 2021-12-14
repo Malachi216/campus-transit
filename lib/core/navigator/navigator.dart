@@ -23,11 +23,14 @@ class TransitNavigator {
   static void navigateToSignUp(BuildContext context) =>
       VxNavigator.of(context).push(Uri.parse(Routes.signupRoute));
 
+    static Future<void> navigateToHome(BuildContext context) async =>
+      VxNavigator.of(context).clearAndPush(Uri.parse(Routes.homeRoute));    
+
   static void navigateToSignIn(BuildContext context,
           {bool verifyEmailDeepLink = false}) =>
       VxNavigator.of(context)
           .push(Uri.parse(Routes.signinRoute), params: verifyEmailDeepLink);
 
-  static void navigateToLanding(BuildContext context) =>
-      VxNavigator.of(context).clearAndPush(Uri.parse(Routes.welcomeRoute));
+  // static void navigateToLanding(BuildContext context) =>
+  //     VxNavigator.of(context).clearAndPush(Uri.parse(Routes.welcomeRoute));
 }

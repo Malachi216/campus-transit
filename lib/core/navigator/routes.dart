@@ -2,7 +2,7 @@ class Routes {
   Routes._();
 
   static const splashRoute = "/";
-  static const welcomeRoute = "/welcome";
+  // static const welcomeRoute = "/welcome";
   static const signupRoute = "/signup";
   static const signinRoute = "/signin";
   static const homeRoute = "/home";

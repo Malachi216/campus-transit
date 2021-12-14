@@ -21,8 +21,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigate() async {
-    await Future.delayed(const Duration(milliseconds: 2000));
-    TransitNavigator.navigateToLanding(context);
+    await Future.delayed(const Duration(milliseconds: 3500));
+    TransitNavigator.navigateToSignUp(context);
   }
 
   @override

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799252123969",
+    "project_id": "campus-transit-134bf",
+    "storage_bucket": "campus-transit-134bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799252123969:android:1a5a94d89695048a8111c0",
+        "android_client_info": {
+          "package_name": "com.limitless.campus_transit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799252123969-tlj1cm2r4c1r12gfn90vpquiv3d1e44o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYsW16Qa4L7g6lf-pqKZgl7OemKjKKECs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799252123969-tlj1cm2r4c1r12gfn90vpquiv3d1e44o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

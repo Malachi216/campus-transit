@@ -57,7 +57,18 @@ class TransitUser {
             ? Utilities.stringToUserType(map['userType'])
             : UserType.PASSENGER;
   // //   //location
+  TransitUser.fromFirebaseUser(User user,UserType type) {
 
+    TransitUser transitUser = TransitUser(
+      userId: user.uid,
+      userType: type,
+      name: user.displayName,
+      phoneNumber: user.phoneNumber,
+      emailAddress: user.email,
+      
+
+    );
+  }
 }
 
 enum UserType { PASSENGER, DRIVER, ADMIN }

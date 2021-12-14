@@ -11,5 +11,5 @@ Map<Pattern, VxPageBuilder> get routes => {
     Routes.homeRoute: (_, __) => CupertinoPage(child: HomeScreen()),
     Routes.signupRoute: (_, __) => CupertinoPage(child: SignupScreen()),
     Routes.signinRoute: (_, __) => CupertinoPage(child: SigninScreen()),
-    // Routes.welcomeRoute: (_, __) => CupertinoPage(child: LandingScreen()),
+    // Routes.welcomeRoute: (_, __) => CupertinoPage(child: WelcomeScreen()),
   };

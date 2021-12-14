@@ -22,10 +22,31 @@ class UIData {
   static const appLogoPath = '$baseIconPath/logo.svg';
   static const truckImagePath = '$baseIconPath/truck.svg';
 
-  
-
   static const primaryColor = Color(0xFF4098B8);
   static const secondaryColor = Color(0xFF43CDFF);
+  static const greyColor = Color(0xffC4C4C4);
+  static const scaffoldBackgroundColor = Color(0xff41A3FB);
+
+  static const onBoardingHeaderTextStyle = TextStyle(
+    fontSize: 20.0,
+    color: Color(0xFF3D3B3B),
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.normal,
+  );
+
+  static const campusStyle = TextStyle(
+    fontSize: 20.0,
+    color: Color(0XFF2B92B7),
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
+
+    static const transitStyle = TextStyle(
+    fontSize: 20.0,
+    color: Color(0XFF2B92B7),
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.normal,
+  );
 
   static const MaterialColor materialPrimaryColor = const MaterialColor(
     0xFF4098B8,

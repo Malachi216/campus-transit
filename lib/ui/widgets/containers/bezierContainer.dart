@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core/constants.dart';
-import '../../../core/navigator/navigator.dart';
-import '../display_widget.dart';
 
 class BezierContainer extends StatelessWidget {
   final String title;
