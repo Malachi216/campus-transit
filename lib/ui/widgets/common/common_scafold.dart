@@ -23,6 +23,7 @@ class CommonScaffold extends StatelessWidget {
   final Color backgroundColor;
   final List<Widget> persistentFooterButtons;
   final bool resizeToAvoidBottomInset;
+  final bool showLeading;
 
   const CommonScaffold({
     Key key,
@@ -37,6 +38,7 @@ class CommonScaffold extends StatelessWidget {
     this.progressIndicator = const CommonProgressIndicator(),
     this.persistentFooterButtons,
     this.resizeToAvoidBottomInset = true,
+    this.showLeading = true,
   }) : super(key: key);
 
   @override
@@ -47,8 +49,8 @@ class CommonScaffold extends StatelessWidget {
       backgroundColor: backgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: AppBar(
-        leading:
-            _leadingWidget(context),
+        leading: showLeading?
+            _leadingWidget(context): null,
         backgroundColor: Colors.white, //UIData.scaffoldBackgroundColor,
         centerTitle: true,
         elevation: 0.0,

@@ -40,17 +40,16 @@ class _SplashScreenState extends State<SplashScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Center(
-                  child: Image(
-                    image: AssetImage(
-                      'assets/images/logo.png',
-                    ),
-                    color: Colors.white,
+                  child: Image.asset(
+                    'assets/images/truck.png',
                     height: 200.0,
                     width: 200.0,
                   ),
                 ),
                 SizedBox(height: 50.0),
-                CampusTransitText(),
+                CampusTransitText(
+                  fromSplash: true,
+                ),
                 SizedBox(height: _size.height / 6),
                 Text('by', style: commonStyle),
                 HeightBox(15),

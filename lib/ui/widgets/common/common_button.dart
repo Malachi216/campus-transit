@@ -12,16 +12,16 @@ class CommonButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        width: size.width/ 3,
+        width: size.width / 3,
         padding: EdgeInsets.symmetric(
           // horizontal: 15.0,
-          vertical: 10.0,
+          vertical: 12.0,
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.0),
-          color: UIData.greyColor,
-          border: Border.all(color: Colors.black)
-        ),
+            borderRadius: BorderRadius.circular(5.0),
+            // color: UIData.greyColor,
+            color: Colors.white,
+            border: Border.all(color: Colors.black)),
         child: Center(
           child: Text(label),
         ),

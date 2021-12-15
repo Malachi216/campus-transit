@@ -45,13 +45,14 @@ class _SignupScreenState extends State<SignupScreen> {
 
     return CommonScaffold(
       backgroundColor: UIData.primaryColor,
+      showLeading: false,
       child: Form(
         child: ListView(
           // crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            HeightDividerBox(5),
+            HeightDividerBox(10),
             driverPassengerTab(),
             HeightDividerBox(30),
             CommonTextField(

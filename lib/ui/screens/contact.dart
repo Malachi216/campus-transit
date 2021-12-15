@@ -52,7 +52,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               hintText: 'Enter your message',
               padding: commonPadding,
               onChanged: (String value) {
-                email = value;
+                message = value;
               },
             ),
             HeightDividerBox(30),

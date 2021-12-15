@@ -40,7 +40,7 @@ class _SigninScreenState extends State<SigninScreen> {
       child: Form(
         child: ListView(
           children: [
-            HeightDividerBox(3),
+            HeightDividerBox(10),
             CommonTextField(
               hintText: 'Enter your email',
               padding: commonPadding,

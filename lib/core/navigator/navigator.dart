@@ -12,16 +12,10 @@ class TransitNavigator {
     VxNavigator.of(context).clearAndPush(Uri.parse(Routes.signupRoute));
   }
 
-  // static void navigateFromNotification(String route, BuildContext context,
-  //     ReceivedNotification receivedNotification) {
-  //   VxNavigator.of(context)
-  //       .push(Uri.parse(route), params: receivedNotification);
-  // }
-
   static void pop(BuildContext context) => VxNavigator.of(context).pop();
 
   static void navigateToSignUp(BuildContext context) =>
-      VxNavigator.of(context).push(Uri.parse(Routes.signupRoute));
+      VxNavigator.of(context).clearAndPush(Uri.parse(Routes.signupRoute));
 
     static Future<void> navigateToHome(BuildContext context) async =>
       VxNavigator.of(context).clearAndPush(Uri.parse(Routes.homeRoute));    

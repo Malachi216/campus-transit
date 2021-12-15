@@ -13,13 +13,13 @@ class TransitStore extends VxStore {
     name: 'Tester',
   );
   List<String> Bustops = [
-    'Mayfair, Campus Gate, Lagere, Sub, New Market, Anglomoz'
+    'Mayfair', 'Campus Gate', 'Lagere', 'Sub',' New Market', 'Anglomoz'
   ];
 
   List<Ticket> searchTransitResults = [];
 
-  String selectedFromBustop = 'Mayfair';
-  String selectedToBustop = 'Anglomoz';
+  String selectedFromBustop ;
+  String selectedToBustop ;
   DateTime selectedTransitTime = DateTime.now();
 
   bool isLoading = false;
