@@ -93,7 +93,7 @@ class _SigninScreenState extends State<SigninScreen> {
     );
   }
 
- Future<void> _signIn() async {
+ Future<void>  _signIn() async {
     print('signin');
     UpdateLoadingStatus(true);
     dynamic result =

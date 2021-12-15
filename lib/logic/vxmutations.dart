@@ -39,6 +39,7 @@ class SelectToBustop extends VxMutation<TransitStore> {
 
   @override
   perform() {
+    if(bank == store.selectedFromBustop) return;
     store.selectedToBustop = bank;
   }
 

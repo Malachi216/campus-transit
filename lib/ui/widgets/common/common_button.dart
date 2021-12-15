@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class CommonButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
-  const CommonButton({Key key, this.onPressed, this.label}) : super(key: key);
+  final bool greenColor;
+  const CommonButton(
+      {Key key, this.onPressed, this.label, this.greenColor = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,20 @@ class CommonButton extends StatelessWidget {
           vertical: 12.0,
         ),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
-            // color: UIData.greyColor,
-            color: Colors.white,
-            border: Border.all(color: Colors.black)),
+          borderRadius: BorderRadius.circular(5.0),
+          // color: UIData.greyColor,
+          color: greenColor ? UIData.primaryColor : Colors.white,
+          border: Border.all(
+            color: greenColor ? Colors.white : Colors.black,
+          ),
+        ),
         child: Center(
-          child: Text(label),
+          child: Text(
+            label,
+            style: TextStyle(
+              color: greenColor ? Colors.white : Colors.black,
+            ),
+          ),
         ),
       ),
     );

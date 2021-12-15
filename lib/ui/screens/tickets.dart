@@ -67,13 +67,15 @@ class TicketCard extends StatelessWidget {
         }
       },
       child: Container(
-        height: 150,
+        height: 120,
         width: 300,
         decoration: BoxDecoration(
           color: Color(0xff7EA7B7),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('${ticket.name}'),
             Divider(height: 2),
@@ -82,11 +84,12 @@ class TicketCard extends StatelessWidget {
               displayWidget: ticket.WithAcAndCurtains,
               child: Text('WITH AC & CURTAINS'),
             ),
-            Text('DATE: ${timestampToDate(ticket.timestamp)}'),
+            // Text('DATE: $/.}'),
             Text('6am - 10pm'),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                for (var busstop in ticket.bustops) Text('$busstop'),
+                for (var busstop in ticket.bustops) Text('$busstop '),
               ],
             ),
           ],

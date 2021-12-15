@@ -77,15 +77,15 @@ class HomeScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-            ListTile(
-              title: Text(
-                'TICKETS',
-                style: commonTextStyle,
-              ),
-              onTap: () {
-                TransitNavigator.navigateTo(Routes.tickets, context);
-              },
-            ),
+            // ListTile(
+            //   title: Text(
+            //     'TICKETS',
+            //     style: commonTextStyle,
+            //   ),
+            //   onTap: () {
+            //     TransitNavigator.navigateTo(Routes.tickets, context);
+            //   },
+            // ),
             ListTile(
               title: Text(
                 'BOOK A TICKET',
