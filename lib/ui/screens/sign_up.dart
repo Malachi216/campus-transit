@@ -1,5 +1,6 @@
 import 'package:campus_transit/core/constants.dart';
 import 'package:campus_transit/core/navigator/navigator.dart';
+import 'package:campus_transit/logic/validators.dart';
 import 'package:campus_transit/logic/vxstore.dart';
 import 'package:campus_transit/models/transit_user.dart';
 import 'package:campus_transit/services/firebase_controller.dart';
@@ -34,6 +35,7 @@ class _SignupScreenState extends State<SignupScreen> {
   TransitStore _store;
 
   String transitName;
+  TransitUser transitUser = TransitUser();
 
   @override
   Widget build(BuildContext context) {
@@ -49,21 +51,43 @@ class _SignupScreenState extends State<SignupScreen> {
           // mainAxisAlignment: MainAxisAlignment.center,
 
           children: [
-            HeightDividerBox(20),
+            HeightDividerBox(5),
             driverPassengerTab(),
             HeightDividerBox(30),
             CommonTextField(
-              hintText: 'Enter your email',
+              hintText: 'Enter your name',
               padding: commonPadding,
               onChanged: (String value) {
-                email = value;
+                transitUser.name = value;
               },
             ),
             HeightDividerBox(50),
-            // CommonTextField(
-            //   padding: commonPadding,
-            //   hintText: 'Enter your password',
-            // ),
+
+            CommonTextField(
+              hintText: 'Enter your email',
+              padding: commonPadding,
+              keyboardType: TextInputType.emailAddress,
+              onChanged: (String value) {
+                email = value;
+                transitUser.emailAddress = value;
+              },
+              validator: Validators.signUpEmailValidator,
+            ),
+            HeightDividerBox(50),
+
+            CommonTextField(
+              hintText: 'Phone Number',
+              onChanged: (value) {
+                transitUser.phoneNumber = value;
+              },
+              padding: commonPadding,
+              keyboardType: TextInputType.phone,
+              autofocus: false,
+              maxLines: 1,
+              validator: Validators.signUpPhoneNumberValidator,
+            ),
+            HeightDividerBox(50),
+
             CommonTextField(
               padding: commonPadding,
               hintText: 'Enter your password',
@@ -161,14 +185,6 @@ class _SignupScreenState extends State<SignupScreen> {
             numberOfSeats = int.tryParse(value);
           },
         ),
-        HeightDividerBox(50),
-        CommonTextField(
-          padding: commonPadding,
-          hintText: 'Phone Number',
-          onChanged: (String value) {
-            phoneNumber = value;
-          },
-        ),
       ],
     );
   }
@@ -185,14 +201,13 @@ class _SignupScreenState extends State<SignupScreen> {
       await Fluttertoast.showToast(msg: 'Passwords do not match');
       return;
     }
-    dynamic result = await FirebaseController.signup(email, password);
-    if (result is User) {
+    dynamic result = await FirebaseController.signup(transitUser, password);
+    if (result is TransitUser) {
       await Fluttertoast.showToast(msg: 'Signed up successfully');
-      _store.user = TransitUser.fromFirebaseUser(result, userType);
+      _store.user = result;
       TransitNavigator.navigateToHome(context);
-    }else{
+    } else {
       await Fluttertoast.showToast(msg: result);
-
     }
   }
 

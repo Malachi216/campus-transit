@@ -1,8 +1,10 @@
 import 'package:campus_transit/core/constants.dart';
 import 'package:campus_transit/core/navigator/navigator.dart';
+import 'package:campus_transit/logic/vxmutations.dart';
 import 'package:campus_transit/logic/vxstore.dart';
 import 'package:campus_transit/models/transit_user.dart';
 import 'package:campus_transit/services/firebase_controller.dart';
+import 'package:campus_transit/ui/screens/home.dart';
 import 'package:campus_transit/ui/widgets/common/common_button.dart';
 import 'package:campus_transit/ui/widgets/common/common_scafold.dart';
 import 'package:campus_transit/ui/widgets/common/common_textfield.dart';
@@ -23,7 +25,7 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   String email;
   String password;
-  bool obscureText = false;
+  bool obscureText = true;
   TransitStore _store;
   EdgeInsets commonPadding = EdgeInsets.symmetric(horizontal: 20.0);
 
@@ -39,12 +41,6 @@ class _SigninScreenState extends State<SigninScreen> {
         child: ListView(
           children: [
             HeightDividerBox(3),
-            //    Image.asset(
-            //   'assets/images/logo.png',
-            //   // height: 60,
-            //   // width: 60,
-            // ),
-            // HeightDividerBox(50),
             CommonTextField(
               hintText: 'Enter your email',
               padding: commonPadding,
@@ -66,6 +62,9 @@ class _SigninScreenState extends State<SigninScreen> {
                 },
                 child: Icon(Icons.remove_red_eye),
               ),
+              onChanged: (String value) {
+                password = value;
+              },
             ),
             HeightDividerBox(30),
             Padding(
@@ -94,16 +93,24 @@ class _SigninScreenState extends State<SigninScreen> {
     );
   }
 
-  _signIn() async {
+ Future<void> _signIn() async {
     print('signin');
-
-    dynamic result = await FirebaseController.signin(email, password);
+    UpdateLoadingStatus(true);
+    dynamic result =
+        await FirebaseController.signin(email.trim(), password.trim());
     if (result is User) {
-      await Fluttertoast.showToast(msg: 'Signed up successfully');
-      // _store.user = TransitUser.fromFirebaseUser(result, userType);
+      TransitUser user = await FirebaseController.obtainUser(result.uid);
+      _store.user = user;
+      UpdateLoadingStatus(false);
+      await Fluttertoast.showToast(msg: 'Signed in successfully');
       TransitNavigator.navigateToHome(context);
+      // Navigator.pushNamedAndRemoveUntil(context,
+      //     MaterialPageRoute(builder: (BuildContext context) {
+      //   return HomeScreen();
+      // }));
     } else {
-      await Fluttertoast.showToast(msg: result);
+      UpdateLoadingStatus(false);
+      await Fluttertoast.showToast(msg: 'failed to sign in $result');
     }
   }
 

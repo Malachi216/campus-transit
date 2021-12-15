@@ -6,6 +6,18 @@ class Utilities {
   static TransitStore _store = VxState.store as TransitStore;
   // static TransitStore _picker = ImagePicker();
 
+    static UserType intToUserType(int type) {
+    UserType userType;
+    if (type == 0) {
+      userType = UserType.PASSENGER;
+    } else if (type == 'admin') {
+      userType = UserType.ADMIN;
+    } else if (type == 'driver') {
+      userType = UserType.DRIVER;
+    }
+    return userType;
+  }
+
   static UserType stringToUserType(String type) {
     UserType userType;
     if (type == 'passenger') {

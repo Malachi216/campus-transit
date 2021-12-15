@@ -52,10 +52,12 @@ class TransitUser {
       : userId = map['userId'],
         name = map['name'] ?? '',
         phoneNumber = map['phoneNumber'],
+        emailAddress = map['emailAddress'],
 
         // //   //user configurations
         userType = map['userType'] != null
-            ? Utilities.stringToUserType(map['userType'])
+            ?
+            UserType.values[map['userType']]
             : UserType.PASSENGER;
   // //   //location
   TransitUser.fromFirebaseUser(User user, UserType type) {

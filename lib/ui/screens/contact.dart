@@ -25,29 +25,29 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   String email;
   String password;
   bool obscureText = false;
-  TransitStore _store;
+  String message;
   EdgeInsets commonPadding = EdgeInsets.symmetric(horizontal: 20.0);
 
   @override
   Widget build(BuildContext context) {
     Size _size;
     _size = MediaQuery.of(context).size;
-    _store = (VxState.store as TransitStore);
 
     return CommonScaffold(
-      backgroundColor: UIData.primaryColor,
       child: Form(
         child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 32),
           children: [
             HeightDividerBox(50),
-            Text('CONTACT US'),
-            //    Image.asset(
-            //   'assets/images/logo.png',
-            //   // height: 60,
-            //   // width: 60,
-            // ),
-            // HeightDividerBox(50),
-            Text('Message Admin'),
+            Center(
+              child: Text(
+                'CONTACT US',
+                style: UIData.campusStyle,
+              ),
+            ),
+            HeightDividerBox(50),
+            Text('Message Admin:'),
+            HeightDividerBox(10),
             CommonTextField(
               hintText: 'Enter your message',
               padding: commonPadding,
@@ -56,17 +56,28 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               },
             ),
             HeightDividerBox(30),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: _size.width / 6),
-              child: CommonButton(
-                onPressed: _sendMessage,
-                label: 'Send',
+            Align(
+              alignment: Alignment(0.8, 0.8),
+              child: Container(
+                height: 45,
+                width: 80,
+                child: CommonButton(
+                  onPressed: _sendMessage,
+                  label: 'Send',
+                ),
               ),
             ),
             HeightDividerBox(40),
-            Text('Email: campustransit@gmail.com'),
+            Padding(
+              padding: const EdgeInsets.only(left: 32),
+              child: SelectableText('Email: campustransit@gmail.com'),
+            ),
             HeightBox(30),
-            Text('Phone: +234 813 356 7845'),
+            Padding(
+              padding: const EdgeInsets.only(left: 32),
+              child: SelectableText('Phone: +234 813 356 7845'),
+            ),
+            HeightDividerBox(20),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: _size.width / 6),
               child: CommonButton(
@@ -74,6 +85,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 label: 'Back',
               ),
             ),
+            // HeightDividerBox(10),
           ],
         ),
       ),
@@ -81,11 +93,19 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   }
 
   _sendMessage() async {
-    UpdateLoadingStatus(true);
-    await Future.delayed(const Duration(milliseconds: 2000));
-    UpdateLoadingStatus(false);
-    await Fluttertoast.showToast(msg: 'Message sent successfully');
-    TransitNavigator.pop(context);
+    if (message != null && message != '') {
+      UpdateLoadingStatus(true);
+      await Future.delayed(const Duration(milliseconds: 2000));
+      UpdateLoadingStatus(false);
+      await Fluttertoast.showToast(
+        msg:
+            'Message sent to the admin successfully...You should get a response soon',
+        toastLength: Toast.LENGTH_LONG,
+      );
+      TransitNavigator.pop(context);
+    } else {
+      await Fluttertoast.showToast(
+          msg: 'Type in a message before hitting send');
+    }
   }
-
 }

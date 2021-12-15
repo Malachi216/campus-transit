@@ -10,6 +10,7 @@ import '../containers/bezierContainer.dart';
 import '../indicators/common_progress_indicator.dart';
 import '../indicators/loading_overlay.dart';
 
+
 class CommonScaffold extends StatelessWidget {
   final Widget child;
   final Widget endDrawer;
@@ -42,10 +43,12 @@ class CommonScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     // TransitStore store = VxState.store;
     return Scaffold(
+
       backgroundColor: backgroundColor,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       appBar: AppBar(
-        leading: _leadingWidget(context),
+        leading:
+            _leadingWidget(context),
         backgroundColor: Colors.white, //UIData.scaffoldBackgroundColor,
         centerTitle: true,
         elevation: 0.0,
@@ -97,6 +100,8 @@ class CommonScaffold extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
 class AppBarText extends StatelessWidget {
