@@ -16,6 +16,10 @@ class UIData {
   static String poppins = 'poppins';
 
   //bases
+
+  static final avatarIconBackgroundColor = Colors.black.withOpacity(0.08);
+
+
   static const baseImagePath = 'assets/images';
   static const baseIconPath = 'assets/icons';
 
@@ -39,6 +43,26 @@ class UIData {
     color: Color(0XFF2B92B7),
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
+  );
+    static const onBoardingHintTextStyle = TextStyle(
+    fontSize: 15.0,
+    color: Color(0xFF979797),
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+  );
+
+  static final avatarIconPath = '$baseIconPath/avatar.svg';
+
+
+
+    static final dropdownDecoration = InputDecoration(
+    hintStyle: UIData.onBoardingHintTextStyle,
+    border: OutlineInputBorder(
+      borderSide: BorderSide.none,
+      borderRadius: BorderRadius.circular(20.0),
+    ),
+    fillColor: Colors.white,
+    filled: true,
   );
 
     static const transitStyle = TextStyle(

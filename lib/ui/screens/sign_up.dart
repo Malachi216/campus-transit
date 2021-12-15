@@ -185,7 +185,7 @@ class _SignupScreenState extends State<SignupScreen> {
       await Fluttertoast.showToast(msg: 'Passwords do not match');
       return;
     }
-    dynamic result = await FirebaseController.signin(email, password);
+    dynamic result = await FirebaseController.signup(email, password);
     if (result is User) {
       await Fluttertoast.showToast(msg: 'Signed up successfully');
       _store.user = TransitUser.fromFirebaseUser(result, userType);

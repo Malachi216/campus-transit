@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class FirebaseController {
   static FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -50,5 +51,14 @@ class FirebaseController {
       return signupError;
     }
     return signedUser;
+  }
+
+  static Future<void> signout() async {
+    try {
+      await _firebaseAuth.signOut();
+    } catch (e) {
+      Fluttertoast.showToast(msg: 'Failed to sign out');
+      print(e);
+    }
   }
 }

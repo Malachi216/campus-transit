@@ -1,6 +1,6 @@
 import 'package:campus_transit/core/utiltities/utitlities.dart';
+import 'package:campus_transit/models/tickets_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 class UsersResults {
   List<TransitUser> users;
@@ -18,8 +18,7 @@ class UsersResults {
     }
   }
 
-  UsersResults.fromSnapshot(DataSnapshot snapshot)
-      : this.fromMap(snapshot.value);
+  UsersResults.fromSnapshot(snapshot) : this.fromMap(snapshot.value);
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> data = new Map<String, dynamic>();
@@ -37,6 +36,7 @@ class TransitUser {
   UserType userType;
   dynamic phoneNumber;
   String emailAddress;
+  List<Ticket> tickets;
 
   TransitUser({
     this.userType = UserType.PASSENGER,
@@ -44,6 +44,7 @@ class TransitUser {
     this.userId,
     this.name,
     this.phoneNumber,
+    this.tickets,
     this.emailAddress,
   });
 
@@ -57,16 +58,13 @@ class TransitUser {
             ? Utilities.stringToUserType(map['userType'])
             : UserType.PASSENGER;
   // //   //location
-  TransitUser.fromFirebaseUser(User user,UserType type) {
-
+  TransitUser.fromFirebaseUser(User user, UserType type) {
     TransitUser transitUser = TransitUser(
       userId: user.uid,
       userType: type,
       name: user.displayName,
       phoneNumber: user.phoneNumber,
       emailAddress: user.email,
-      
-
     );
   }
 }

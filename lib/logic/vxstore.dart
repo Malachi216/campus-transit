@@ -1,3 +1,4 @@
+import 'package:campus_transit/models/tickets_model.dart';
 import 'package:campus_transit/models/transit_user.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -11,6 +12,15 @@ class TransitStore extends VxStore {
     userType: UserType.PASSENGER,
     name: 'Tester',
   );
+  List<String> Bustops = [
+    'Mayfair, Campus Gate, Lagere, Sub, New Market, Anglomoz'
+  ];
+
+  List<Ticket> searchTransitResults = [];
+
+  String selectedFromBustop = 'Mayfair';
+  String selectedToBustop = 'Anglomoz';
+  DateTime selectedTransitTime = DateTime.now();
 
   bool isLoading = false;
 

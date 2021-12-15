@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'vxstore.dart';
 
@@ -36,61 +35,6 @@ abstract class PlacesEffects implements VxEffects<auth.User> {
   void fail(auth.User user);
 }
 
-class SignInWithGoogle extends VxMutation<TransitStore> with AuthEffects {
-  final BuildContext context;
-  auth.User user;
-
-  SignInWithGoogle(this.context);
-
-  Future<auth.User> perform() async {
-    UpdateLoadingStatus(true);
-    return await _signInWithGoogle();
-  }
-
-  Future<auth.User> _signInWithGoogle() async {
-    auth.User user;
-    UserCredential userCredential;
-
-    if (kIsWeb) {
-      var googleProvider = GoogleAuthProvider();
-      userCredential =
-          await auth.FirebaseAuth.instance.signInWithPopup(googleProvider);
-    } else {
-      final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
-      if (googleUser != null) {
-        final GoogleSignInAuthentication googleAuth =
-            await googleUser.authentication;
-        final googleAuthCredential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
-        userCredential = await auth.FirebaseAuth.instance
-            .signInWithCredential(googleAuthCredential);
-        user = userCredential.user;
-      } else {
-        UpdateLoadingStatus(false);
-      }
-    }
-
-    return user;
-  }
-
-  success(auth.User user) {
-    UpdateLoadingStatus(false);
-  }
-
-  fail(auth.User user) {
-    UpdateLoadingStatus(false);
-    Fluttertoast.showToast(msg: 'Failed to sign in,try again. ');
-
-  }
-
-  onException(e, StackTrace s) {
-    UpdateLoadingStatus(false);
-    print(e);
-    Fluttertoast.showToast(msg: '$e');
-  }
-}
 
 class SignInWithEmail extends VxMutation<TransitStore> with AuthEffects {
   auth.User user;

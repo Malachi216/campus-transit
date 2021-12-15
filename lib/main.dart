@@ -11,6 +11,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:path_provider/path_provider.dart' as p;
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+
 
 
 void main() async {
@@ -18,6 +20,8 @@ void main() async {
   setPathUrlStrategy();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   var box = await initHive();
+  await DotEnv.load();
+
   FirebaseApp app = await initializeFirebaseDefault();
 
 

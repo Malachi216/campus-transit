@@ -9,7 +9,7 @@ class TransitNavigator {
       VxNavigator.of(context).push(Uri.parse(route));
 
   static void restart(BuildContext context) {
-    VxNavigator.of(context).clearAndPush(Uri.parse(Routes.splashRoute));
+    VxNavigator.of(context).clearAndPush(Uri.parse(Routes.signupRoute));
   }
 
   // static void navigateFromNotification(String route, BuildContext context,
