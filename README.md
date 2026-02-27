@@ -1,16 +1,89 @@
-# campus_transit
+Campus Transit
 
-A new Flutter project.
+A lightweight web application for estimating campus travel distance and
+duration between two locations. Designed for university or corporate
+campus environments.
 
-## Getting Started
+------------------------------------------------------------------------
 
-This project is a starting point for a Flutter application.
+Features
 
-A few resources to get you started if this is your first Flutter project:
+-   Calculate estimated travel distance
+-   Estimate travel duration
+-   Generate a simple trip summary
+-   Responsive UI
+-   Fully client-side (no backend required)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+------------------------------------------------------------------------
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+How It Works
+
+1.  Enter an Origin.
+2.  Enter a Destination.
+3.  The app calculates:
+    -   Estimated distance
+    -   Estimated travel time
+4.  A formatted trip summary is displayed.
+
+------------------------------------------------------------------------
+
+Tech Stack
+
+-   HTML5
+-   CSS3
+-   JavaScript
+-   Bootstrap 5
+
+------------------------------------------------------------------------
+
+Project Structure
+
+campus-transit/
+
+-   index.html Main UI layout
+-   app.js Transit calculation logic
+-   style.css Custom styling
+-   assets/ Images and UI assets
+
+------------------------------------------------------------------------
+
+Usage
+
+1.  Clone the repository: git clone
+    https://github.com/Malachi216/campus-transit.git
+
+2.  Navigate into the folder: cd campus-transit
+
+3.  Open index.html in your browser.
+
+4.  Enter origin and destination.
+
+5.  Click Calculate to view:
+
+    -   Distance
+    -   Duration
+    -   Trip summary
+
+------------------------------------------------------------------------
+
+Notes
+
+-   Designed for localized campus estimation.
+-   Does not use live GPS or map APIs.
+-   Intended as a lightweight planning tool.
+
+------------------------------------------------------------------------
+
+Future Improvements
+
+-   Integrate map APIs
+-   Add real-time routing
+-   Support multiple travel modes
+-   Store trip history
+-   Add export functionality
+
+------------------------------------------------------------------------
+
+License
+
+MIT License
