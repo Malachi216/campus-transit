@@ -1,4 +1,4 @@
-Campus Transit
+# Campus Transit
 
 A lightweight web application for estimating campus travel distance and
 duration between two locations. Designed for university or corporate
@@ -6,7 +6,7 @@ campus environments.
 
 ------------------------------------------------------------------------
 
-Features
+## Features
 
 -   Calculate estimated travel distance
 -   Estimate travel duration
@@ -16,7 +16,7 @@ Features
 
 ------------------------------------------------------------------------
 
-How It Works
+## How It Works
 
 1.  Enter an Origin.
 2.  Enter a Destination.
@@ -27,7 +27,7 @@ How It Works
 
 ------------------------------------------------------------------------
 
-Tech Stack
+## Tech Stack
 
 -   HTML5
 -   CSS3
@@ -36,7 +36,7 @@ Tech Stack
 
 ------------------------------------------------------------------------
 
-Project Structure
+## Project Structure
 
 campus-transit/
 
@@ -47,7 +47,7 @@ campus-transit/
 
 ------------------------------------------------------------------------
 
-Usage
+## Usage
 
 1.  Clone the repository: git clone
     https://github.com/Malachi216/campus-transit.git
@@ -66,7 +66,7 @@ Usage
 
 ------------------------------------------------------------------------
 
-Notes
+## Notes
 
 -   Designed for localized campus estimation.
 -   Does not use live GPS or map APIs.
@@ -74,7 +74,7 @@ Notes
 
 ------------------------------------------------------------------------
 
-Future Improvements
+## Future Improvements
 
 -   Integrate map APIs
 -   Add real-time routing
@@ -84,6 +84,6 @@ Future Improvements
 
 ------------------------------------------------------------------------
 
-License
+## License
 
 MIT License
